@@ -1,4 +1,5 @@
-import { Reply, Markup } from '../src/index';
+import { Reply } from '../src/reply/reply';
+import { Markup } from '../src/reply/markup';
 import { generateRandomText } from './utils/text';
 
 const M = Markup;

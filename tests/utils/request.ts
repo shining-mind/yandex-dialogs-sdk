@@ -1,9 +1,11 @@
-import { IApiRequest } from '../../src/api/request';
+/// <reference path="../../src/api/request.d.ts" />
+
+import { ApiRequest } from 'yandex-dialogs-sdk/api/request';
 
 export function createTextRequest(
     commandText: string,
     utteranceText?: string,
-): IApiRequest {
+): ApiRequest {
   return {
     meta: {
       client_id: 'Developer Console',

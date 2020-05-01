@@ -1,6 +1,9 @@
-import { Alice, Scene, Stage, Reply, IStageContext } from '../src/index';
+import { Alice, Scene, Stage, render, StageContext, sessionMiddleware } from '../src/index';
+import { InMemorySessionStorage } from '../src/session/inMemorySessionStorage';
 import { createTextRequest } from './utils/request';
 import { generateRandomText } from './utils/text';
+
+const { reply } = render;
 
 describe('alice scenes', () => {
   let alice: Alice;
@@ -8,20 +11,19 @@ describe('alice scenes', () => {
   let randomText = '';
   beforeEach(() => {
     alice = new Alice();
+    alice.use(sessionMiddleware(new InMemorySessionStorage()));
     stage = new Stage();
     randomText = generateRandomText();
   });
 
   test('create new scene', async done => {
     const scene = new Scene('bar');
-    scene.any(ctx => Reply.text(randomText));
+    scene.any(ctx => reply`${randomText}`);
     stage.addScene(scene);
-    // alice.use(sessionMiddleware());
     alice.use(stage.getMiddleware());
-    alice.any(async ctx => {
-      // TODO (yavanosta): get rid of this "as".
-      (ctx as IStageContext).enter('bar');
-      return Reply.text('foo');
+    alice.any(async (ctx: StageContext) => {
+      ctx.enter('bar');
+      return reply`foo`;
     });
     // handling first request, leading to the scene "bar"
     let data = await alice.handleRequest(createTextRequest('hey!'));
@@ -34,22 +36,21 @@ describe('alice scenes', () => {
 
   test('switch between scenes', async done => {
     const scene1 = new Scene('1');
-    scene1.any(ctx => {
+    scene1.any((ctx: StageContext) => {
       ctx.enter('2');
-      return Reply.text('scene1');
+      return reply`scene1`;
     });
     const scene2 = new Scene('2');
-    scene2.any(async ctx => {
+    scene2.any(async (ctx: StageContext) => {
       ctx.leave();
-      return Reply.text('scene2');
+      return reply`scene2`;
     });
     stage.addScene(scene1);
     stage.addScene(scene2);
     alice.use(stage.getMiddleware());
-    alice.any(async ctx => {
-      // TODO (yavanosta): get rid of this "as".
-      (ctx as IStageContext).enter('1');
-      return Reply.text('alice');
+    alice.any(async (ctx: StageContext) => {
+      ctx.enter('1');
+      return reply`alice`;
     });
     let data = await alice.handleRequest(createTextRequest('baz'));
     expect(data.response.text).toBe('alice');
