@@ -1,29 +1,11 @@
 declare module 'alice-renderer' {
-  export interface Button {
-    title: string;
-    url?: string;
-    payload?: string;
-    hide?: boolean;
-  }
+  import { ApiResponseBody, ApiResponseBodyButton, ApiResponseBigImageCard } from 'yandex-dialogs-sdk/api/response';
 
-  export interface Response {
-    text: string;
-    tts?: string;
-    card?: {
-      type: 'BigImage';
-      image_id?: string;
-      title?: string;
-      descriptions?: string;
-    };
-    buttons?: Button[];
-    end_session: boolean;
-  }
-
-  export function reply(stringParts: string[]): Response;
+  export function reply(stringParts: TemplateStringsArray, ...values: any[]): ApiResponseBody;
   export function buttons(
-    items: Array<string | Button>,
-    defaults?: Button,
-  ): Button[];
+    items: Array<string | ApiResponseBodyButton>,
+    defaults?: ApiResponseBodyButton,
+  ): ApiResponseBodyButton[];
   export function audio(name: string): void;
   export function effect(name: string): void;
   export function pause(ms?: number): void;
@@ -67,12 +49,7 @@ declare module 'alice-renderer' {
       title?: string;
       description?: string;
       appendDescription?: string;
-      button?: Button;
+      button?: ApiResponseBodyButton;
     },
-  ): {
-    type: 'BigImage';
-    image_id: string;
-    title?: string;
-    description?: string;
-  };
+  ): ApiResponseBigImageCard
 }

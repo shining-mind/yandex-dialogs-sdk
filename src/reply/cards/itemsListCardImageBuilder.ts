@@ -1,4 +1,4 @@
-import { ApiResponseItemsListCardImage } from '../../api/response';
+import { ApiResponseItemsListCardImage } from 'yandex-dialogs-sdk/api/response';
 import { CardButtonDeclaration, CardButtonBuilder } from './cardButtonBuilder';
 
 export interface IItemsListCardImageReply {

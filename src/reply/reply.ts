@@ -1,4 +1,4 @@
-import { ApiResponseBody } from '../api/response';
+import { ApiResponseBody } from 'yandex-dialogs-sdk/api/response';
 import { TextReplyDeclaration, TextReplyBuilder } from './textReplyBuilder';
 import {
   ExtraParamsDeclaration,

@@ -1,6 +1,6 @@
-import { ApiRequest } from './api/request';
-import { ApiRequestNlu } from './api/nlu';
-import { ApiResponseBody } from './api/response';
+import { ApiRequest } from 'yandex-dialogs-sdk/api/request';
+import { ApiRequestNlu } from 'yandex-dialogs-sdk/api/nlu';
+import { ApiResponseBody } from 'yandex-dialogs-sdk/api/response';
 
 export interface Context {
   readonly data: ApiRequest;

@@ -7,7 +7,7 @@ import {
   IApiImageQuota,
   IApiImageQuotaResponse,
   IApiImageDeleteResponse,
-} from './api/image';
+} from 'yandex-dialogs-sdk/api/image';
 
 export interface ImagesApiConfig {
   oAuthToken?: string;

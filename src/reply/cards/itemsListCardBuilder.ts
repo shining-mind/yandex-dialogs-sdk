@@ -1,4 +1,4 @@
-import { ApiResponseItemsListCard } from '../../api/response';
+import { ApiResponseItemsListCard } from 'yandex-dialogs-sdk/api/response';
 import { CardFooterDeclaration, CardFooterBuilder } from './cardFooterBuilder';
 import {
   ItemsListCardHeaderDeclaration,

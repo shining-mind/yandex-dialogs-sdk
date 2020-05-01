@@ -1,4 +1,4 @@
-import { ApiResponseBigImageCard } from '../../api/response';
+import { ApiResponseBigImageCard } from 'yandex-dialogs-sdk/api/response';
 import { CardFooterDeclaration, CardFooterBuilder } from './cardFooterBuilder';
 import { CardButtonDeclaration, CardButtonBuilder } from './cardButtonBuilder';
 

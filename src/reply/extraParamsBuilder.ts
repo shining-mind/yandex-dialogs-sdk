@@ -1,4 +1,4 @@
-import { ApiResponseBodyButton } from '../api/response';
+import { ApiResponseBodyButton } from 'yandex-dialogs-sdk/api/response';
 import { BodyButtonDeclaration } from './bodyButtonBuilder';
 import { BodyButtonBuilder } from './bodyButtonBuilder';
 

@@ -1,6 +1,6 @@
-export * from './api/image';
-export * from './api/request';
-export * from './api/response';
+export * from 'yandex-dialogs-sdk/api/image';
+export * from 'yandex-dialogs-sdk/api/request';
+export * from 'yandex-dialogs-sdk/api/response';
 
 export {
   Command,
@@ -11,9 +11,7 @@ export {
 
 import { Alice } from './alice';
 
-import * as render from 'alice-renderer'
-export { render }
-
+export * as render from 'alice-renderer'
 export { Scene } from './stage/scene';
 export { Stage } from './stage/stage';
 export { StageContext } from './stage/stageContext';

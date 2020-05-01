@@ -1,4 +1,4 @@
-import { ApiResponseCardButton } from '../../api/response';
+import { ApiResponseCardButton } from 'yandex-dialogs-sdk/api/response';
 
 export interface ICardButtonReply {
   text: string;

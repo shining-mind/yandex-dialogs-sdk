@@ -1,4 +1,4 @@
-import { ApiResponseItemsListCardHeader } from '../../api/response';
+import { ApiResponseItemsListCardHeader } from 'yandex-dialogs-sdk/api/response';
 
 export interface IItemsListCardHeaderReply {
   text: string;

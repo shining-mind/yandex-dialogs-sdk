@@ -1,7 +1,7 @@
 import * as http from 'http';
 import debug from '../debug';
-import { ApiRequest } from '../api/request';
-import { ApiResponse } from '../api/response';
+import { ApiRequest } from 'yandex-dialogs-sdk/api/request';
+import { ApiResponse } from 'yandex-dialogs-sdk/api/response';
 
 type HandleAliceRequestType = (request: ApiRequest) => Promise<ApiResponse>;
 
