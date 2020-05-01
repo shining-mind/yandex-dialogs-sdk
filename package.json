@@ -10,6 +10,7 @@
     "build": "npm-run-all build:*",
     "build:rm-dist": "shx rm -rf dist",
     "build:tsc": "tsc --declaration",
+    "postbuild:tsc": "shx cp src/alice-renderer.d.ts dist && shx cp -R src/api dist",
     "version": "npm-run-all version:*",
     "version:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "version:add-changelog": "git add CHANGELOG.md",
@@ -25,7 +26,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
